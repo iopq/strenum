@@ -4,7 +4,7 @@
 #[macro_export]
 macro_rules! strenum {
     ($e:ident => $( $t:ident ),*  ) => {
-		use std::num::FromPrimitive;
+        use std::num::FromPrimitive;
         #[derive(FromPrimitive, Debug)]
         enum $e { $($t,)* }
         impl Strenum for $e {
@@ -42,14 +42,14 @@ strenum! {
 
 #[test]
 fn stringify() {
-	assert_eq!(&*<testenum>::stringify(), "a\nb");
+    assert_eq!(&*<testenum>::stringify(), "a\nb");
 }
 
 #[test]
 fn enumify() {
-	match <testenum>::enumify("b").unwrap() {
-		testenum::b => "success",
-		testenum::a => panic!("Got a instead of b"),
-	};
+    match <testenum>::enumify("b").unwrap() {
+        testenum::b => "success",
+        testenum::a => panic!("Got a instead of b"),
+    };
 }
 
