@@ -1,10 +1,10 @@
 #![feature(core)]
 #![allow(non_camel_case_types)]
-use std::num::FromPrimitive;
 
 #[macro_export]
 macro_rules! strenum {
     ($e:ident => $( $t:ident ),*  ) => {
+		use std::num::FromPrimitive;
         #[derive(FromPrimitive, Debug)]
         enum $e { $($t,)* }
         impl Strenum for $e {
@@ -30,7 +30,7 @@ macro_rules! strenum {
     }
 }
 
-trait Strenum {
+pub trait Strenum {
     fn enumify(command: &str) -> Option<Self>;
     fn stringify() -> String;
 }

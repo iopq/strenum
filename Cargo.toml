@@ -1,7 +1,7 @@
 [package]
 
 name = "strenum"
-version = "0.0.1"
+version = "0.0.3"
 authors = ["Igor Polyakov <iopguy@gmail.com>"]
 description = "An enum that can print all of its variants"
 repository = "https://github.com/iopq/strenum"
