@@ -1,12 +1,16 @@
-#![feature(core)]
 #![allow(non_camel_case_types)]
+
+#[macro_use] extern crate enum_primitive;
+extern crate num;
+use num::traits::FromPrimitive;
 
 #[macro_export]
 macro_rules! strenum {
     ($e:ident => $( $t:ident ),*  ) => {
-        use std::num::FromPrimitive;
-        #[derive(FromPrimitive, Debug)]
+		enum_from_primitive! {
+        #[derive(Debug)]
         enum $e { $($t,)* }
+		}
         impl Strenum for $e {
             fn enumify(command: &str) -> Option<$e> {
                 match command {
