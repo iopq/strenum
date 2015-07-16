@@ -18,17 +18,17 @@ macro_rules! strenum {
                     _ => None
                 }
             }
-            
+
             fn stringify() -> String {
                 let mut buf = Vec::<String>::new();
                 let mut n: u8 = 0;
-                
+
                 while let Some(val) = <Self>::from_u8(n) {
                     buf.push(format!("{:?}", val));
                     n += 1;
                 }
-                
-                buf.connect("\n")
+
+                buf.join("\n")
             }
         }
     }
@@ -56,4 +56,3 @@ fn enumify() {
         testenum::a => panic!("Got a instead of b"),
     };
 }
-
