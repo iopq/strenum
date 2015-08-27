@@ -34,7 +34,7 @@ macro_rules! strenum {
     }
 }
 
-pub trait Strenum {
+pub trait Strenum: Sized {
     fn enumify(command: &str) -> Option<Self>;
     fn stringify() -> String;
 }
